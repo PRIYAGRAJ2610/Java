@@ -22,6 +22,8 @@ Throwable
    - RuntimeException
       - NullPointerException
       - IndexOutOfBoundsException
+      - ArithmaticException
+      - NumberFormatException
   Error
    - OutOfMemoryError
    - StackOverflowError
