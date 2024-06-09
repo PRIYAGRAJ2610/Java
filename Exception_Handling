@@ -35,31 +35,30 @@ void printStackTrace(): Prints the stack trace to the standard error stream.
 
 
 2. Handling Exceptions
+
 2.1 The try-catch Block
 The try block contains the code that might throw an exception. The catch block handles the exception.
 
-java
-Copy code
+
 try {
     // Code that may throw an exception
 } catch (ExceptionType e) {
     // Code to handle the exception
 }
+
 Example:
 
-java
-Copy code
 try {
     int[] numbers = {1, 2, 3};
     System.out.println(numbers[10]);
 } catch (ArrayIndexOutOfBoundsException e) {
     System.out.println("Array index is out of bounds!");
 }
+
+-------------------------------------------------------------------------------------------------------------------------
 2.2 Multiple catch Blocks
 You can catch multiple exceptions using multiple catch blocks.
 
-java
-Copy code
 try {
     // Code that may throw an exception
 } catch (NullPointerException e) {
@@ -67,6 +66,8 @@ try {
 } catch (ArrayIndexOutOfBoundsException e) {
     System.out.println("Array index is out of bounds!");
 }
+
+--------------------------------------------------------------------------------------------------------------------------
 2.3 The finally Block
 The finally block is always executed, whether an exception is thrown or not.
 
@@ -79,6 +80,8 @@ try {
 } finally {
     System.out.println("This block is always executed.");
 }
+
+---------------------------------------------------------------------------------------------------------------------------
 2.4 Try-with-resources Statement
 Introduced in Java 7, it ensures that resources are closed automatically.
 
@@ -89,24 +92,24 @@ try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
 } catch (IOException e) {
     System.out.println("IOException caught!");
 }
+
+===============================================================================================================================
 3. Throwing Exceptions
+
 3.1 The throw Statement
 You can throw exceptions manually using the throw keyword.
 
-java
-Copy code
 throw new IllegalArgumentException("Invalid argument passed");
+
+--------------------------------------------------------------------------------------------------
 3.2 Custom Exceptions
 Creating custom exceptions by extending the Exception class.
 
-java
-Copy code
 class CustomException extends Exception {
     public CustomException(String message) {
         super(message);
     }
 }
-
 public class TestCustomException {
     public static void main(String[] args) {
         try {
@@ -116,6 +119,8 @@ public class TestCustomException {
         }
     }
 }
+
+========================================================================================================================================
 4. Checked vs Unchecked Exceptions
 4.1 Checked Exceptions
 These are exceptions that must be either caught or declared in the method's throws clause. Examples include IOException and SQLException.
@@ -127,8 +132,6 @@ These are exceptions that do not need to be declared or caught. They are subclas
 5.1 Catch Specific Exceptions
 Always catch the most specific exception first.
 
-java
-Copy code
 try {
     // Code that may throw an exception
 } catch (FileNotFoundException e) {
@@ -136,17 +139,18 @@ try {
 } catch (IOException e) {
     System.out.println("I/O error occurred!");
 }
+
+-----------------------------------------------------------------------------------------------------------------------------
 5.2 Avoid Catching Throwable
 Do not catch Throwable as it will also catch Error, which are generally not recoverable.
 
 5.3 Use Custom Exceptions Judiciously
 Use custom exceptions to provide meaningful error messages that are specific to your application's domain.
+-------------------------------------------------------------------------------------------------------------------------
 
 5.4 Log Exceptions
 Always log exceptions for debugging and audit purposes.
 
-java
-Copy code
 import java.util.logging.*;
 
 public class LoggingExample {
@@ -160,12 +164,12 @@ public class LoggingExample {
         }
     }
 }
+
+=================================================================================================================================================
 6. Advanced Topics
 6.1 Exception Chaining
 Using exception chaining to throw a new exception while preserving the original exception.
 
-java
-Copy code
 try {
     // Some code that throws an exception
 } catch (IOException e) {
